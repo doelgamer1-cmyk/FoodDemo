@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #E23744; /* Zomato-like red */
+  --color-brand-green: #2D882D;
+  --color-brand-charcoal: #1C1C1C;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --shadow-zomato: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+@layer base {
+  body {
+    @apply bg-white text-brand-charcoal font-sans antialiased;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.product-card {
+  @apply bg-white rounded-2xl overflow-hidden mb-6 transition-transform active:scale-[0.99];
+  box-shadow: var(--shadow-zomato);
+}
+
+.category-circle {
+  @apply flex-shrink-0 flex flex-col items-center gap-2 w-20;
+}
+
+.category-img-container {
+  @apply w-16 h-16 rounded-full overflow-hidden bg-gray-100 border border-gray-100;
+}
+
+.add-button-container {
+  @apply absolute bottom-[-12px] right-4 bg-white rounded-lg border border-gray-200 shadow-md flex items-center overflow-hidden h-9 min-w-[80px];
+}
+
+@keyframes pulse-status {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-pulse-status {
+  animation: pulse-status 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.clip-path-triangle {
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+}
